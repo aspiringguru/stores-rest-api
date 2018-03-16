@@ -13,7 +13,9 @@ app = Flask(__name__)
 
 app.config['DEBUG'] = True
 
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+#nb: in above, first value is retrieved from environment variables, if null, use second value
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'jose'
 api = Api(app)
